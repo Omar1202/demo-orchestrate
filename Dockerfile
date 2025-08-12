@@ -5,13 +5,12 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copiar archivos
-COPY requirements.txt requirements.txt
-COPY app.py app.py
-COPY data_predicted.csv data_predicted.csv
+COPY . .
 
 # Instalar dependencias
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install --no-cache-dir -r requirements.txt
+
 
 # Exponer el puerto
 EXPOSE 8080
